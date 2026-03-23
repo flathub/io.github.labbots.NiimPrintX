@@ -24,8 +24,8 @@ modules:
       - --with-threads
     sources:
       - type: archive
-        url: https://github.com/ImageMagick/ImageMagick/archive/7.1.2-16.tar.gz
-        sha256: aadfa67a104d14a35339de0f2cc286c973a0f43329770c69e9667a22208750fb
+        url: https://github.com/ImageMagick/ImageMagick/archive/7.1.2-18.tar.gz
+        sha256: 2db8a1f9bac19831c76574e4fd514ecb80a71a49911ee5dc8c1f3fb6d9d550df
         x-checker-data:
           type: anitya
           project-id: 1372
