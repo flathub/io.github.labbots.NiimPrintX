@@ -34,20 +34,16 @@ modules:
     cleanup:
       - /bin/*-config
 
-  - pre-pypi-dependencies.json
-  - rust-pypi-dependencies.json
+  # flatpak-builder-tools/poetry/flatpak-poetry-generator.py -o python3-poetry.json poetry.lock
+  # XXX: modules matching pyobjc*, ruff, win32* and winrt* were manually removed
   - python3-poetry.json
-  - pyinstaller.json
-  # flatpak-builder-tools/pip/flatpak-pip-generator --yaml -r requirements.txt
-  # FIXME pyobjc-core* was removed from the list:
-  # See https://github.com/flatpak/flatpak-builder-tools/issues/394
-  - python3-requirements.yaml
 
   - name: NiimPrintX
     buildsystem: simple
     build-commands:
       - cp -r NiimPrintX/ /app/lib/python3.12/site-packages/
       - install -Dm755 assets/linux/niimprintx /app/bin/niimprintx
+      - install -Dm755 niimprintx-ui /app/bin/niimprintx-ui
       - install -Dm755 niimprintx-cli /app/bin/niimprintx-cli
       - install -Dm755 bluetoothctl /app/bin/bluetoothctl
       - install -Dm644 -t /app/share/applications/ assets/linux/${FLATPAK_ID}.desktop
@@ -60,21 +56,12 @@ modules:
 
     sources:
       - type: git
-        url: https://github.com/labbots/NiimPrintX
-        tag: v0.0.47
-      - type: patch
-        path: add-b1-support.patch
-        use-git-am: true
-      - type: patch
-        path: 0001-Look-for-assets-in-the-right-place.patch
-        use-git-am: true
-      - type: patch
-        path: 0001-Use-magick-on-Linux-as-well.patch
-        use-git-am: true
-      # https://github.com/labbots/NiimPrintX/pull/16
-      - type: patch
-        path: 0001-Add-desktop-and-metainfo-file-for-Linux-distribution.patch
-        use-git-am: true
+        url: https://github.com/Avicennasis/NiimPrintX.git
+        commit: 99e9e2635f5107a7a17ce2c622500c9211207a56
+      - type: script
+        dest-filename: niimprintx-ui
+        commands:
+          - python -m NiimPrintX.ui
       - type: script
         dest-filename: niimprintx-cli
         commands:
