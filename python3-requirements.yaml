@@ -21,6 +21,15 @@ modules:
       - type: file
         url: https://files.pythonhosted.org/packages/3b/00/2344469e2084fb287c2e0b57b72910309874c3245463acd6cf5e3db69324/appdirs-1.4.4-py2.py3-none-any.whl
         sha256: a841dacd6b99318a741b166adb07e19ee71a274450e68237b4650ca1055ab128
+  - name: python3-six
+    buildsystem: simple
+    build-commands:
+      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+        --prefix=${FLATPAK_DEST} "six>=1.12.0" --no-build-isolation
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/b7/ce/149a00dd41f10bc29e5921b496af8b574d8413afcd5e30dfa0ed46c2cc5e/six-1.17.0-py2.py3-none-any.whl
+        sha256: 4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274
   - name: python3-asttokens
     buildsystem: simple
     build-commands:
@@ -35,11 +44,11 @@ modules:
     buildsystem: simple
     build-commands:
       - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
-        --prefix=${FLATPAK_DEST} "bleak==0.21.1" --no-build-isolation
+        --prefix=${FLATPAK_DEST} "bleak==0.22.3" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/08/4a/7b6ff6710ec58f6709000b1fbc27b763e3921a1e5f23032aebe2531366fa/bleak-0.21.1-py3-none-any.whl
-        sha256: ccec260a0f5ec02dd133d68b0351c0151b2ecf3ddd0bcabc4c04a1cdd7f33256
+        url: https://files.pythonhosted.org/packages/0a/ce/3adf9e742bb22e4a4b3435f24111cb46a1d12731ba655ee00bb5ab0308cc/bleak-0.22.3-py3-none-any.whl
+        sha256: 1e62a9f5e0c184826e6c906e341d8aca53793e4596eeaf4e0b191e7aca5c461c
       - type: file
         url: https://files.pythonhosted.org/packages/0a/37/a27e7f2dc6a18b5dcee70ffb08013a33770c2154a51fb5e2c04a7f4169fa/dbus_fast-2.24.3.tar.gz
         sha256: 9042a1b565ecac4f8e04df79376de1d1d31e4c82eddb6e71e8b8d82d0c94dd3d
@@ -52,6 +61,15 @@ modules:
       - type: file
         url: https://files.pythonhosted.org/packages/00/2e/d53fa4befbf2cfa713304affc7ca780ce4fc1fd8710527771b58311a3229/click-8.1.7-py3-none-any.whl
         sha256: ae74fb96c20a0277a1d615f1e4d73c8414f5a98db8b799a7931d1582f3390c28
+  - name: python3-pygments
+    buildsystem: simple
+    build-commands:
+      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+        --prefix=${FLATPAK_DEST} "pygments>=2.15.0" --no-build-isolation
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/f4/7e/a72dd26f3b0f4f2bf1dd8923c85f7ceb43172af56d63c7383eb62b332364/pygments-2.20.0-py3-none-any.whl
+        sha256: 81a9e26dd42fd28a23a2d169d86d7ac03b46e2f8b59ed4698fb4785f946d0176
   - name: python3-devtools
     buildsystem: simple
     build-commands:
@@ -117,11 +135,11 @@ modules:
     buildsystem: simple
     build-commands:
       - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
-        --prefix=${FLATPAK_DEST} "pillow==10.3.0" --no-build-isolation
+        --prefix=${FLATPAK_DEST} "pillow==11.2.1" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/ef/43/c50c17c5f7d438e836c169e343695534c38c77f60e7c90389bd77981bc21/pillow-10.3.0.tar.gz
-        sha256: 9d2455fbf44c914840c793e89aa82d0e1763a14253a000743719ae5946814b2d
+        url: https://files.pythonhosted.org/packages/af/cb/bb5c01fcd2a69335b86c22142b2bccfc3464087efb7fd382eee5ffc7fdf7/pillow-11.2.1.tar.gz
+        sha256: a64dd61998416367b7ef979b73d3a85853ba9bec4c2925f74e588879a58716b6
   - name: python3-rich
     buildsystem: simple
     build-commands:
