@@ -62,6 +62,7 @@ modules:
       - type: git
         url: https://github.com/labbots/NiimPrintX
         tag: v0.0.47
+        commit: e51cf57b19fda8de66632ab063784df1c359fd5f
       - type: patch
         path: add-b1-support.patch
         use-git-am: true
