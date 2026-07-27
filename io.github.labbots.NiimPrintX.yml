@@ -24,8 +24,8 @@ modules:
       - --with-threads
     sources:
       - type: archive
-        url: https://github.com/ImageMagick/ImageMagick/archive/7.1.2-27.tar.gz
-        sha256: 485dad5226fda2417ea65f3eb6e3f63e7d5dfacacdf6f57f9c39b6ef1e3cb667
+        url: https://github.com/ImageMagick/ImageMagick/archive/7.1.2-28.tar.gz
+        sha256: b4a5ec023644fd345f1e22b1ab92af3fb6762dceb56de805dde53b0ce515c481
         x-checker-data:
           type: anitya
           project-id: 1372
@@ -46,16 +46,17 @@ modules:
   - name: python3-meson-python
     buildsystem: simple
     build-commands:
-      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "meson-python" --no-build-isolation
+      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+        --prefix=${FLATPAK_DEST} "meson-python" --no-build-isolation
     cleanup:
       - '*'
     sources:
-     - type: file
-       url: https://files.pythonhosted.org/packages/16/7f/d1b0c65b267a1463d752b324f11d3470e30889daefc4b9ec83029bfa30b5/meson_python-0.19.0-py3-none-any.whl
-       sha256: 67b5906c37404396d23c195e12c8825506074460d4a2e7083266b845d14f0298
-     - type: file
-       url: https://files.pythonhosted.org/packages/1d/0b/da4851b1e2d9c40c9bd74c0abd94510a7d797da9ccde0a90e8953751ed4a/pyproject_metadata-0.11.0-py3-none-any.whl
-       sha256: 85bbecca8694e2c00f63b492c96921d6c228454057c88e7c352b2077fcaa4096
+      - type: file
+        url: https://files.pythonhosted.org/packages/16/7f/d1b0c65b267a1463d752b324f11d3470e30889daefc4b9ec83029bfa30b5/meson_python-0.19.0-py3-none-any.whl
+        sha256: 67b5906c37404396d23c195e12c8825506074460d4a2e7083266b845d14f0298
+      - type: file
+        url: https://files.pythonhosted.org/packages/1d/0b/da4851b1e2d9c40c9bd74c0abd94510a7d797da9ccde0a90e8953751ed4a/pyproject_metadata-0.11.0-py3-none-any.whl
+        sha256: 85bbecca8694e2c00f63b492c96921d6c228454057c88e7c352b2077fcaa4096
 
   - name: python3-pycairo
     buildsystem: simple
